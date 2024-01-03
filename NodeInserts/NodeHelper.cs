@@ -250,6 +250,49 @@ namespace NodeClass
         }
 
         #endregion
+        public static int Return(Node<int> list, int num)
+        {
+            Node<int> head = list;
+            int count = 0;
+            while (head.HasNext() == true)
+            {
+                if (list.GetValue()==num &&head.GetValue()!=num)
+                {
+                    count++;
+                    list=head;
+                    head=list.GetNext();
+                }
+            }
+            if(list.GetValue()==num&&list.GetNext()==null) { count++; }
+            return count;
+        }
+        public static char Pitamar(Node<int> list)
+        {
+            int countZ = 0;
+            int countE = 0;
+            while (list != null)
+            {
+                if (list.GetValue() % 2 == 0)
+                {
+                    countZ++;
+                }
+                if (list.GetValue() % 2 != 0)
+                {
+                    countE++;
+                }
+                list = list.GetNext();
+            }
+            if (countZ > countE)
+            {
+                return 'z';
+            }
+            if (countE > countZ)
+            {
+                return 'e';
+            }
 
+            return 's';
+        }
     }
+
 }
