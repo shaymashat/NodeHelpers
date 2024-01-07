@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Text;
@@ -293,6 +294,55 @@ namespace NodeClass
 
             return 's';
         }
+
+        public static Node<T> Double<T>(Node<T> node)
+        {
+           Node<T> head = node; 
+            while (node!=null)
+            {
+                head = node.GetNext();
+                while (node != null)
+                {
+                    Node<T> currentnode = node.GetNext();
+                    if (!node.GetValue().Equals(currentnode.GetValue()))
+                    {
+                        currentnode.SetNext(head.GetNext());
+                        currentnode.SetNext(null);
+                    }
+                    currentnode = currentnode.GetNext();
+                }
+                node.SetNext(head);
+            }
+
+            return head;
+        }
+
+        public static bool IsAscending(Node<int> list)
+        {
+            while (list.HasNext())
+            {
+                if (list.GetValue() > list.GetNext().GetValue())
+                {
+                    return false;
+                }
+                list = list.GetNext();
+            }
+            return true;
+        }
+        public static Node<int> Sidra(int begginer,int num)
+        {
+            Node<int> list = new Node<int>(begginer);
+            Node<int> head = list;
+           for(int i = 1; i <= num; i++)
+            {
+                Node<int> next = new Node<int>(begginer + i);
+                list.SetNext(next);
+                head = next;
+            }
+           return head;
+        }
+
+
     }
 
 }
