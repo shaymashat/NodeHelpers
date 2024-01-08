@@ -251,6 +251,7 @@ namespace NodeClass
         }
 
         #endregion
+        //שאלה 2
         public static int Return(Node<int> list, int num)
         {
             Node<int> head = list;
@@ -267,7 +268,8 @@ namespace NodeClass
             if(list.GetValue()==num&&list.GetNext()==null) { count++; }
             return count;
         }
-        public static char Pitamar(Node<int> list)
+        //Question 4
+        public static char Four(Node<int> list)
         {
             int countZ = 0;
             int countE = 0;
@@ -294,7 +296,7 @@ namespace NodeClass
 
             return 's';
         }
-
+        //Question 6
         public static Node<T> Double<T>(Node<T> node)
         {
            Node<T> head = node; 
@@ -316,7 +318,7 @@ namespace NodeClass
 
             return head;
         }
-
+        //Question 8
         public static bool IsAscending(Node<int> list)
         {
             while (list.HasNext())
@@ -329,6 +331,7 @@ namespace NodeClass
             }
             return true;
         }
+        //Question 10
         public static Node<int> Sidra(int begginer,int num)
         {
             Node<int> list = new Node<int>(begginer);
