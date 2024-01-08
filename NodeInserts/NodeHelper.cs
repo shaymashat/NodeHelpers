@@ -344,6 +344,37 @@ namespace NodeClass
             }
            return head;
         }
+        //Question 14
+        //פעולת עזר
+        public static Node<int> delete(Node<int> head)
+        {
+            int biggestNum = int.MinValue;
+            int biggestIndex = 0;
+            int index = 0;
+            Node<int> newNode = head;
+            while (newNode != null)
+            {
+                if (newNode.GetValue() > biggestNum) { biggestNum = newNode.GetValue(); biggestIndex = index; }
+                index++;
+                newNode = newNode.GetNext();
+            }
+            if (biggestIndex == 0) { return head.GetNext(); }
+            Node<int> newNode2 = head;
+            for (int i = 0; i < biggestIndex - 1; i++)
+            {
+                newNode2 = newNode2.GetNext();
+            }
+            newNode2.SetNext(newNode2.GetNext().GetNext());
+            return head;
+        }
+        public static Node<int> Ex14(Node<int> head, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                head = delete(head);
+            }
+            return head;
+        }
 
 
     }
