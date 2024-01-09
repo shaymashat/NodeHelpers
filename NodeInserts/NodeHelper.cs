@@ -376,6 +376,25 @@ namespace NodeClass
             return head;
         }
 
+        public static Node<T> WithoutDuplicate<T>(Node<T> lst)
+        {
+            if (lst == null)
+                return null;
+            Node<T> head=new Node<T>(lst.GetValue());
+            Node<T> tail = head;
+            lst=lst.GetNext();
+            while (lst != null)
+            {
+                if (!IsExists(head, lst.GetValue()))
+                {
+                    tail.SetNext(new Node<T>(lst.GetValue()));
+                    tail=tail.GetNext();
+                }
+                lst=lst.GetNext();
+            }
+            return head;
+        }
+
 
     }
 
