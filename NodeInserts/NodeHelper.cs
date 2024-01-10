@@ -394,7 +394,57 @@ namespace NodeClass
             }
             return head;
         }
+        //Question 32
+        public static int Ex32(Node<int> lis1, Node<int> lis2) 
+        {
+            int count = 0;
+            int count2 =0;
+            Node<int> head1 = lis1;
+            Node<int> head2 = lis2;
+            while (lis1.GetNext()!=null)
+            {
+                count++;
+                lis1=lis1.GetNext();
+            }
+            while (lis2.GetNext() != null)
+            {
+                count2++;
+                lis2=lis2.GetNext();
+            }
+            if (count > count2)
+                return -1;
+            if (count2 > count)
+                return -2;
+            if (count == count2)
+            {
+                while (lis1.GetNext() != null)
+                {
+                   head1 = lis1.GetNext();
+                    head2 = lis2.GetNext();
+                    if (head1.GetValue() > head2.GetValue())
+                    {
+                        return -1;
+                    }
+                    else
+                        return -2;
 
+                }
+            }
+            return 0;
+        }
+        //Question 33
+
+        public static Node<int> Ex33(Node<int> lis1,Node<int> lis2)
+        {
+            Node<int> head = lis1;
+            Node<int> head2 = lis2;
+            while (lis1.GetNext()!=null)
+            {
+                head = lis1.GetNext();
+                head2 = lis2.GetNext();
+
+            }
+        }
 
     }
 
