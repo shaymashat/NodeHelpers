@@ -434,16 +434,33 @@ namespace NodeClass
         }
         //Question 33
 
-        public static Node<int> Ex33(Node<int> lis1,Node<int> lis2)
-        {
-            Node<int> head = lis1;
-            Node<int> head2 = lis2;
-            while (lis1.GetNext()!=null)
-            {
-                head = lis1.GetNext();
-                head2 = lis2.GetNext();
+        //public static Node<int> Ex33(Node<int> lis1,Node<int> lis2)
+        //{
+        //    Node<int> head = lis1;
+        //    Node<int> head2 = lis2;
+        //    while (lis1.GetNext()!=null)
+        //    {
+        //        head = lis1.GetNext();
+        //        head2 = lis2.GetNext();
 
+        //    }
+        //}
+
+       public static Node<T> Merge<T>(Node<T> lst1,Node<T> lst2)
+        {
+            Node<T> head1= lst1;
+            Node<T> head2= lst2;
+            Node<T> Newlst=new Node<T> (lst1.GetValue());
+           for(int i=0; i<CountList(lst1); i++)
+            {
+                if (i % 2 != 0)
+                {
+                    head1.SetNext(Newlst);
+                }
+                else
+                    head2.SetNext(Newlst);
             }
+           return Newlst as Node<T>;
         }
 
     }
